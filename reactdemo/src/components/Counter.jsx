@@ -1,10 +1,21 @@
 // must return only one element (threefore put everything in a div of all
 // elements you want to return
-const Counter = () => {
+import {useState} from 'react'
+
+
+const Counter = (props) => {
+
+    const incBy = props.incBy
+    const [countState, setCountState] = useState(1)
+
+    function incCount() {
+        setCountState(countState + incBy)
+    }
+
     return (
         <div>
-            Counter willl go here
-
+            <div>{countState}</div>
+            <button onClick={incCount}>+{incBy}</button>
         </div>
     )
 }
